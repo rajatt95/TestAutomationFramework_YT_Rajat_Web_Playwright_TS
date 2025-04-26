@@ -1,4 +1,4 @@
-import { expect, Locator } from '@playwright/test';
+import { expect, Locator, Page } from '@playwright/test';
 
 /**
  * Utility class for performing various verification/assertion actions on web elements.
@@ -44,6 +44,49 @@ class VerificationUtils {
         console.log("Asserts that an element has a specific attribute with the expected value.");
         await expect(targetElement).toHaveAttribute(attribute, attributeValue);
     }
+
+    /**
+     * Asserts that the current page URL contains the expected substring.
+     * @param page - The Playwright page object.
+     * @param expectedUrl - The substring to check for in the page URL.
+     */
+    async pageContainsUrl(page: Page, expectedUrl: string): Promise<void> {    
+        const currentPageUrl = await page.url();      
+        console.log(`Asserts that the current page URL '${currentPageUrl}' contains the expected substring '${expectedUrl}'.`);
+        expect(currentPageUrl).toContain(expectedUrl);
+    }
+
+    /**
+     * Asserts that the current page URL matches the expected URL.
+     * @param page - The Playwright page object.
+     * @param expectedUrl - The expected URL to match.
+     */
+    async pageHasUrl(page: Page, expectedUrl: string): Promise<void> {
+        console.log(`Asserts that the current page URL matches '${expectedUrl}'.`);
+        await expect(page).toHaveURL(expectedUrl);
+    }
+
+    /**
+     * Asserts that the current page Title contains the expected substring.
+     * @param page - The Playwright page object.
+     * @param expectedTitle - The substring to check for in the page title.
+     */
+    async pageContainsTitle(page: Page, expectedTitle: string): Promise<void> {    
+        const currentPageTitle = await page.title();    
+        console.log(`Asserts that the current page Title '${currentPageTitle}' contains the expected substring '${expectedTitle}'.`);
+        expect(currentPageTitle).toContain(expectedTitle);
+    }
+
+    /**
+     * Asserts that the current page Title matches the expected title.
+     * @param page - The Playwright page object.
+     * @param expectedTitle - The expected title to match.
+     */
+    async pageHasTitle(page: Page, expectedTitle: string): Promise<void> {        
+        console.log(`Asserts that the current page Title matches '${expectedTitle}'.`);
+        await expect(page).toHaveTitle(expectedTitle);
+    }
+
 }
 
 /**
