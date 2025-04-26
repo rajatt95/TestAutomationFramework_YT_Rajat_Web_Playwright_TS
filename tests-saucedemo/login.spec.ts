@@ -1,14 +1,22 @@
 // @ts-check
 import { test, expect } from '@playwright/test';
 
+import loginCredentials from '../test-data/login_credentials.json';
+
+// Extracting credentials for both valid and invalid cases
+const {
+  credentials_1: { valid_username, valid_password },
+  credentials_2: { invalid_username, invalid_password }
+} = loginCredentials.data;
+
 test('[LOGIN] Login with valid credentials. Validate that User is able to login using valid credentials. @regression @sanity', async ({ page }) => {
   
   // Navigate to application
   await page.goto('/');
 
   // Fill valid credentials and Login 
-  await page.locator('[data-test="username"]').fill('standard_user');
-  await page.locator('[data-test="password"]').fill('secret_sauce');
+  await page.locator('[data-test="username"]').fill(valid_username);
+  await page.locator('[data-test="password"]').fill(valid_password);
   await page.locator('[data-test="login-button"]').click();
 
   // Assertions for successful login
@@ -36,8 +44,8 @@ test('[LOGIN] Login with invalid credentials. Validate that User is unable to lo
   await page.goto('/');
 
   // Fill invalid credentials and Login 
-  await page.locator('[data-test="username"]').fill('invalid_email@gmail.com');
-  await page.locator('[data-test="password"]').fill('invalid_password');
+  await page.locator('[data-test="username"]').fill(invalid_username);
+  await page.locator('[data-test="password"]').fill(invalid_password);
   await page.locator('[data-test="login-button"]').click();
 
   // Verify the error message for Username and Password mismatch
