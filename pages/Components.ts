@@ -13,8 +13,8 @@ const basePage = new BasePage();
 class Components {
     
     readonly page: Page;
-    private header_logo_swag_labs: Locator;
-    private header_icon_cart: Locator;
+    readonly header_logo_swag_labs: Locator;
+    readonly header_icon_cart: Locator;
     
     private footer_msg_copyright: Locator;
     private footer_link_linkedin: Locator;

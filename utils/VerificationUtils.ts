@@ -104,10 +104,24 @@ class VerificationUtils {
 
         await expect(targetElement).toHaveCount(expectedCount);
     }
+
+    /**
+     * Asserts that an element has a specific CSS property with the expected value.
+     *
+     * @param {Locator} targetElement - The target element to check.
+     * @param {string} targetElementName - The name or identifier of the target element.
+     * @param {string} property - The CSS property to check.
+     * @param {string} propertyValue - The expected value of the CSS property.
+     */ 
+    async elementHasCSSPropertyAndHasValue(targetElement: Locator, targetElementName: string, property: string, propertyValue: string): Promise<void> {
+        console.log(`Asserts that '${targetElementName}' has a specific CSS property '${property}' with the expected value '${propertyValue}'.`);
+        await expect(targetElement).toHaveCSS(property, propertyValue);
+    }
 }
 
+
 /**
- * Exports the VerificationManager class as the default export of this module.
- * @module VerificationManager
+ * Exports the VerificationUtils class as the default export of this module.
+ * @module VerificationUtils
  */
 export default new VerificationUtils();

@@ -41,7 +41,13 @@ test.describe('[COMPONENTS]', () => {
     
     // Verify the cart icon on the header
     await verificationUtils.elementIsVisible(components.get_header_icon_cart(), "Header: Cart icon");
-  });  
+
+    // Verify the CSS Property of the logo
+    verificationUtils.elementHasCSSPropertyAndHasValue(components.header_logo_swag_labs, "Header: Swag Labs", "font-size","24px")
+    // verificationUtils.elementHasCSSPropertyAndHasValue(components.header_logo_swag_labs, "Header: Swag Labs", "font-family",'"DM Mono", "sans-serif"')
+    verificationUtils.elementHasCSSPropertyAndHasValue(components.header_logo_swag_labs, "Header: Swag Labs", "color","rgb(19, 35, 34)")
+
+    });  
   
   /**
    * Test case: [Header] Navigate to Cart Page. Validate that User is able to navigate to Cart Page using Cart icon.
@@ -59,11 +65,11 @@ test.describe('[COMPONENTS]', () => {
   
     // Verify the Page URL
     await verificationUtils.pageContainsUrl(page, 'cart');
-    // await verificationManager.pageHasUrl(page, 'https://www.saucedemo.com/cart.html');
+    // await verificationUtils.pageHasUrl(page, 'https://www.saucedemo.com/cart.html');
     await verificationUtils.pageHasUrl(page, 'cart.html'); // baseUrl value will be fetched from playwright.config.ts file
 
     // Verify the Page Title
-    // await verificationManager.pageContainsTitle(page, 'Labs');
+    // await verificationUtils.pageContainsTitle(page, 'Labs');
     await verificationUtils.pageHasTitle(page, 'Swag Labs');
   });
 
