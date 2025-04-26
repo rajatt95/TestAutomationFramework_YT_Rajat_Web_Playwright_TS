@@ -1,6 +1,10 @@
 import { Page, Locator } from '@playwright/test';
+
+// Importing the BasePage class
 import BasePage from "./BasePage"
 
+// Creating an instance of the BasePage class
+const basePage = new BasePage();
 /**
  * LoginPage class handles operations related to the login page of the application.
  */
@@ -17,6 +21,10 @@ class LoginPage {
     /**
      * Initializes locators for login page elements.
      * @param page - The Playwright Page instance.
+     * 
+     * @example
+     * const loginPage = new LoginPage(page);
+     * // Now you can access locators like loginPage.textbox_username
      */
     constructor(page: Page) {
         this.page = page;
@@ -28,11 +36,14 @@ class LoginPage {
 
     // Operations/Methods
 
-     /**
+    /**
      * Logs into the application by filling in the username and password fields,
      * and clicking the login button.
      * @param username - Username to input.
      * @param password - Password to input.
+     * 
+     * @example
+     * await loginPage.loginToApplication('user', 'password');
      */
     async loginToApplication(username: string, password: string): Promise<void> {
         const basePage = new BasePage();
@@ -42,8 +53,32 @@ class LoginPage {
     }
 
     /**
+     * Logs into the application using predefined valid credentials.
+     * The credentials are loaded from a JSON file.
+     * 
+     * @example
+     * await loginPage.loginToApplicationWithValidCredentials();
+     */
+    async loginToApplicationWithValidCredentials(): Promise<void> {
+
+        // Loading login credentials from JSON file
+        const loginCredentials = require('../test-data/login_credentials.json');  
+    
+        // Extracting credentials for valid case
+        const { valid_username, valid_password } = loginCredentials.data.credentials_1;
+        
+        // Call loginToApplication with valid credentials
+        await this.loginToApplication(valid_username, valid_password);
+    }
+
+    /**
      * Returns the locator for the error message displayed when login credentials do not match.
-     * @returns Locator for the login error message element.
+     * This message appears when invalid credentials are entered.
+     * 
+     * @returns {Locator} - Locator for the login error message element.
+     * 
+     * @example
+     * const errorMessageLocator = loginPage.get_message_error_not_match();
      */
     get_message_error_not_match(): Locator {
         return this.message_error_not_match;
