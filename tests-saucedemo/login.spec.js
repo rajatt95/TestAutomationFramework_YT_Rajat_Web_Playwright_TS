@@ -29,3 +29,18 @@ test('[LOGIN] Login with valid credentials. Validate that User is able to login 
   await expect(page.getByRole('link', { name: 'LinkedIn' })).toHaveAttribute('href', 'https://www.linkedin.com/company/sauce-labs/');
   
 });
+
+test('[LOGIN] Login with invalid credentials. Validate that User is unable to login using invalid credentials.', async ({ page }) => {
+  
+  // Navigate to application
+  await page.goto('/');
+
+  // Fill invalid credentials and Login 
+  await page.locator('[data-test="username"]').fill('invalid_email@gmail.com');
+  await page.locator('[data-test="password"]').fill('invalid_password');
+  await page.locator('[data-test="login-button"]').click();
+
+  // Verify the error message for Username and Password mismatch
+  await expect(page.locator("//h3[contains(text(),'do not match')]")).toContainText('Username and password do not match');
+  
+});
