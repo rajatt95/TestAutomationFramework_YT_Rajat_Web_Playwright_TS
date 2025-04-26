@@ -4,7 +4,7 @@ import { test, expect } from '@playwright/test';
 test('[LOGIN] Login with valid credentials. Validate that User is able to login using valid credentials.', async ({ page }) => {
   
   // Navigate to application
-  await page.goto('https://www.saucedemo.com/');
+  await page.goto('/');
 
   // Fill valid credentials and Login 
   await page.locator('[data-test="username"]').fill('standard_user');
