@@ -18,8 +18,10 @@
     "tests:CHROMIUM:HEADLESS": "npx playwright test --project=chromium",
     "tests:FIREFOX:HEADLESS": "npx playwright test --project=firefox",
     "tests:EDGE:HEADLESS": "npx playwright test --project='Microsoft Edge'",
-    "tests:CHROME:HEADLESS": "npx playwright test --project='Google Chrome'"
-    
+    "tests:CHROME:HEADLESS": "npx playwright test --project='Google Chrome'",
+
+    "tests:ui-mode": "npx playwright test --ui"
+
   },
   "keywords": [],
   "author": "",
