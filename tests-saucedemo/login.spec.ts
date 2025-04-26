@@ -7,6 +7,7 @@ import ProductsPage from '../pages/ProductsPage';
 import Components from '../pages/Components';
 import verificationUtils from '../utils/VerificationUtils';
 
+// Importing test data
 import loginCredentials from '../test-data/login_credentials.json';
 
 // Extracting credentials for both valid and invalid cases
@@ -22,19 +23,28 @@ const {
 test.describe('Sauce Demo - [LOGIN]', () => {
 
   /**
-   * Before each test, navigate to the homepage and create instances of Pages.
+   * Before each test, navigate to the application homepage.
    */
   test.beforeEach(async({ page }) =>{
     // Navigate to application
     await page.goto('/')  
   })
 
+  /**
+   * [LOGIN] Test Case:
+   * Validate that a user is able to successfully log in using valid credentials.
+   * - Verify Products page heading after login
+   * - Verify header logo
+   * - Verify footer elements and LinkedIn link
+   * 
+   * Tags: @regression @sanity
+   */
   test('[LOGIN] Login with valid credentials. Validate that User is able to login using valid credentials. @regression @sanity', async ({ page }) => {
     
     // Navigate to application
     await page.goto('/');
 
-    // Fill valid credentials and Login 
+    // Perform login with valid credentials
     const loginPage = new LoginPage(page)
     await loginPage.loginToApplication(valid_username, valid_password)
 
@@ -59,12 +69,19 @@ test.describe('Sauce Demo - [LOGIN]', () => {
     
   });
 
+  /**
+   * [LOGIN] Test Case:
+   * Validate that a user is unable to log in using invalid credentials.
+   * - Verify the error message for incorrect Username and Password
+   * 
+   * Tags: @regression
+   */
   test('[LOGIN] Login with invalid credentials. Validate that User is unable to login using invalid credentials. @regression', async ({ page }) => {
     
     // Navigate to application
     await page.goto('/');
 
-    // Fill invalid credentials and Login 
+    // Perform login with invalid credentials
     const loginPage = new LoginPage(page)
     await loginPage.loginToApplication(invalid_username, invalid_password)
 

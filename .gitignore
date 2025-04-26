@@ -1,10 +1,13 @@
-
-# Playwright
+# Ignore node_modules - all external packages installed via npm/yarn
 node_modules/
+
+# Ignore Playwright test result folders
 /test-results/
 /playwright-report/
 /blob-report/
+
+# Ignore Playwright's internal cache
 /playwright/.cache/
 
-
+# macOS system file - unnecessary for projects
 .DS_Store
