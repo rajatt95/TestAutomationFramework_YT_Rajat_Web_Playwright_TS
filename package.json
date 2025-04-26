@@ -1,9 +1,11 @@
 {
-  "name": "base_testautomationframework_yt_rajat_web_playwright_ts",
+  "name": "testautomationframework_yt_rajat_web_playwright_ts",
   "version": "1.0.0",
-  "description": "",
+  "description": "This project is a Test Automation Framework built using Playwright and Typescript for automated testing of web applications.",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "playwright:tests": "npx playwright test --headed"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
