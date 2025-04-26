@@ -27,6 +27,7 @@ class Components {
     readonly side_panel_link_about: Locator;
     readonly side_panel_link_logout: Locator;
     readonly side_panel_link_resetAppState: Locator;
+    readonly side_panel_links: Locator;
     
     // Elements
 
@@ -54,6 +55,7 @@ class Components {
         this.side_panel_link_about = page.locator('#about_sidebar_link')
         this.side_panel_link_logout = page.locator('#logout_sidebar_link')
         this.side_panel_link_resetAppState = page.locator('#reset_sidebar_link')
+        this.side_panel_links = page.locator("//*[contains(@id,'sidebar_link')]")
     }
 
     // Operations/Methods

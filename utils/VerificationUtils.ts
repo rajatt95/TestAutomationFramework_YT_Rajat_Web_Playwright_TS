@@ -88,6 +88,22 @@ class VerificationUtils {
         await expect(page).toHaveTitle(expectedTitle);
     }
 
+    /**
+     * Asserts that the number of elements matching the locator equals the expected count.
+     *
+     * @param targetElement - The locator for the target elements.
+     * @param targetElementName - A friendly name for logging purposes.
+     * @param expectedCount - The expected number of elements.
+     */
+     async elementsCount(targetElement: Locator, targetElementName: string, expectedCount: number): Promise<void> {
+        if (expectedCount === 1) {
+            console.log(`Asserts that ${expectedCount} '${targetElementName}' is visible.`);
+        } else {
+            console.log(`Asserts that ${expectedCount} '${targetElementName}' are visible.`);
+        }
+
+        await expect(targetElement).toHaveCount(expectedCount);
+    }
 }
 
 /**
