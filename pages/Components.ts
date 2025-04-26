@@ -12,7 +12,7 @@ const basePage = new BasePage();
  */
 class Components {
     
-    private page: Page;
+    readonly page: Page;
     private header_logo_swag_labs: Locator;
     private header_icon_cart: Locator;
     
@@ -22,7 +22,11 @@ class Components {
     private footer_link_facebook: Locator;
 
     private side_panel_icon_expand: Locator;
-    private side_panel_icon_cross: Locator;
+    readonly side_panel_icon_cross: Locator;
+    readonly side_panel_link_allItems: Locator;
+    readonly side_panel_link_about: Locator;
+    readonly side_panel_link_logout: Locator;
+    readonly side_panel_link_resetAppState: Locator;
     
     // Elements
 
@@ -46,7 +50,10 @@ class Components {
         // Side-Panel
         this.side_panel_icon_expand = page.locator('#react-burger-menu-btn')
         this.side_panel_icon_cross = page.locator('#react-burger-cross-btn')
-
+        this.side_panel_link_allItems = page.locator('#inventory_sidebar_link')
+        this.side_panel_link_about = page.locator('#about_sidebar_link')
+        this.side_panel_link_logout = page.locator('#logout_sidebar_link')
+        this.side_panel_link_resetAppState = page.locator('#reset_sidebar_link')
     }
 
     // Operations/Methods
@@ -121,6 +128,27 @@ class Components {
         return this.side_panel_icon_expand;
     }
 
+    /**
+     * Clicks on the expand icon in the side-panel.
+     */
+    async click_side_panel_icon_expand(): Promise<void> {
+        await basePage.clickOnWebElement(this.side_panel_icon_expand, "Side-Panel: Expand icon");
+    }
+
+    /**
+     * Clicks on the cross icon in the side-panel.
+     */
+    async click_side_panel_icon_cross(): Promise<void> {
+        await basePage.clickOnWebElement(this.side_panel_icon_cross, "Side-Panel: Cross icon");
+    }
+
+    /**
+     * Clicks on the about link in the side-panel.
+     */
+    async click_side_panel_link_about(): Promise<void> {
+        await basePage.clickOnWebElement(this.side_panel_link_about, "Side-Panel: About link");
+    }
+    
 }
 
 /**
