@@ -26,11 +26,12 @@ class VerificationUtils {
     }
 
     /**
-     * Asserts that the target element is visible on the page.
+     * Asserts that the specified element is visible on the page.
      * @param targetElement - The Locator of the element to be verified.
+     * @param targetElementName - A descriptive name of the element for logging purposes.
      */
-    async elementIsVisible(targetElement: Locator): Promise<void> {
-        console.log("Asserts that an element is visible.");
+    async elementIsVisible(targetElement: Locator, targetElementName: string): Promise<void> {
+        console.log(`Asserts that '${targetElementName}' is visible.`);
         await expect(targetElement).toBeVisible();
     }
 

@@ -15,8 +15,12 @@ class Components {
     private page: Page;
     private header_logo_swag_labs: Locator;
     private header_icon_cart: Locator;
+    
     private footer_msg_copyright: Locator;
     private footer_link_linkedin: Locator;
+    private footer_link_twitter: Locator;
+    private footer_link_facebook: Locator;
+
     private side_panel_icon_expand: Locator;
     private side_panel_icon_cross: Locator;
     
@@ -36,6 +40,8 @@ class Components {
         // Footer
         this.footer_msg_copyright = page.locator('.footer_copy');
         this.footer_link_linkedin = page.getByRole('link', { name: 'LinkedIn' });
+        this.footer_link_twitter = page.getByRole('link', { name: 'Twitter' })
+        this.footer_link_facebook = page.getByRole('link', { name: 'Facebook' })
 
         // Side-Panel
         this.side_panel_icon_expand = page.locator('#react-burger-menu-btn')
@@ -68,11 +74,12 @@ class Components {
      */
     async click_header_icon_cart(): Promise<void> {
         const basePage = new BasePage();
-        await basePage.clickOnWebElement(this.header_icon_cart, "Cart icon");
+        await basePage.clickOnWebElement(this.header_icon_cart, "Header: Cart icon");
     }
 
     // Footer
-     /**
+
+    /**
      * Returns the locator for the footer copyright message.
      * @returns Locator for the footer message element.
      */
@@ -88,6 +95,22 @@ class Components {
         return this.footer_link_linkedin;
     }
 
+    /**
+     * Returns the locator for the Twitter link in the footer.
+     * @returns Locator for the Twitter link element.
+     */
+    get_footer_link_twitter(): Locator {
+        return this.footer_link_twitter;
+    }
+
+    /**
+     * Returns the locator for the Facebook link in the footer.
+     * @returns Locator for the Facebook link element.
+     */
+    get_footer_link_facebook(): Locator {
+        return this.footer_link_facebook;
+    }
+    
     // Side-Panel 
 
     /**
