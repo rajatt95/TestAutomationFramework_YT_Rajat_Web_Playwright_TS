@@ -65,7 +65,7 @@ test.describe('[LOGIN]', () => {
     await verificationUtils.elementIsVisible(components.footer_link_linkedin, "Footer: LinkedIn link")
 
     // Verify the href attribute and value for the LinkedIn link in the footer
-    await verificationUtils.elementHasAttributeAndHasValue(components.footer_link_linkedin, 'href', 'https://www.linkedin.com/company/sauce-labs/')
+    verificationUtils.elementHasAttributeAndHasValue(components.footer_link_linkedin, "Footer: LinkedIn link", 'href', 'https://www.linkedin.com/company/sauce-labs/')    
     
   });
 

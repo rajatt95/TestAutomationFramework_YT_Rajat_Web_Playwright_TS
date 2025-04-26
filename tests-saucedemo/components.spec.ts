@@ -98,11 +98,11 @@ test.describe('[COMPONENTS]', () => {
     const components = new Components(page);
 
     // Verify the social links have correct href attributes
-    await verificationUtils.elementHasAttributeAndHasValue(components.footer_link_twitter, "href", "https://twitter.com/saucelabs");
+    await verificationUtils.elementHasAttributeAndHasValue(components.footer_link_twitter, "Footer: Twitter link", "href", "https://twitter.com/saucelabs");
 
-    await verificationUtils.elementHasAttributeAndHasValue(components.footer_link_facebook,"href", "https://www.facebook.com/saucelabs");
+    await verificationUtils.elementHasAttributeAndHasValue(components.footer_link_facebook, "Footer: Facebook link", "href", "https://www.facebook.com/saucelabs");
 
-    await verificationUtils.elementHasAttributeAndHasValue(components.footer_link_linkedin, "href", "https://www.linkedin.com/company/sauce-labs/");
+    await verificationUtils.elementHasAttributeAndHasValue(components.footer_link_linkedin, "Footer: LinkedIn link", "href", "https://www.linkedin.com/company/sauce-labs/");
 
   });
 
