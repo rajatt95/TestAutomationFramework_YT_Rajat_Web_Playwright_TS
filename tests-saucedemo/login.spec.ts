@@ -5,6 +5,7 @@ import { test, expect } from '@playwright/test';
 import LoginPage from '../pages/LoginPage';
 import ProductsPage from '../pages/ProductsPage';
 import Components from '../pages/Components';
+import verificationUtils from '../utils/VerificationUtils';
 
 import loginCredentials from '../test-data/login_credentials.json';
 
@@ -41,20 +42,20 @@ test.describe('Sauce Demo - [LOGIN]', () => {
 
     // Verify the heading on the Products page
     const productsPage = new ProductsPage(page)
-    await expect(productsPage.get_heading_products()).toHaveText('Products')
+    await verificationUtils.elementHasText(productsPage.get_heading_products(), 'Products')
     
     // Verify the logo on the header
     const components = new Components(page)
-    await expect(components.get_header_logo_swag_labs()).toHaveText('Swag Labs')
+    await verificationUtils.elementHasText(components.get_header_logo_swag_labs(), 'Swag Labs')
 
     // Verify the copyright message in the footer
-    await expect(components.get_footer_msg_copyright()).toContainText(' Sauce Labs. All Rights Reserved. Terms of Service | Privacy Policy')
+    await verificationUtils.elementContainsText(components.get_footer_msg_copyright(), ' Sauce Labs. All Rights Reserved. Terms of Service | Privacy Policy')
 
     // Verify that LinkedIn link in the footer is present
-    await expect(components.get_footer_link_linkedin()).toBeVisible()
+    await verificationUtils.elementIsVisible(components.get_footer_link_linkedin())
 
     // Verify the href attribute and value for the LinkedIn link in the footer
-    await expect(components.get_footer_link_linkedin()).toHaveAttribute('href', 'https://www.linkedin.com/company/sauce-labs/')
+    await verificationUtils.elementHasAttributeAndHasValue(components.get_footer_link_linkedin(), 'href', 'https://www.linkedin.com/company/sauce-labs/')
     
   });
 
@@ -68,7 +69,7 @@ test.describe('Sauce Demo - [LOGIN]', () => {
     await loginPage.loginToApplication(invalid_username, invalid_password)
 
     // Verify the error message for Username and Password mismatch
-    await expect(loginPage.get_message_error_not_match()).toContainText('Username and password do not match')
+    await verificationUtils.elementContainsText(loginPage.get_message_error_not_match(), 'Username and password do not match')
     
   });
 
