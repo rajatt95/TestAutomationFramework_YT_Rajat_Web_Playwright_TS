@@ -34,13 +34,13 @@ test.describe('[COMPONENTS]', () => {
    
     // Verify the side-panel expand icon on the header
     const components = new Components(page);    
-    await verificationUtils.elementIsVisible(components.get_side_panel_icon_expand(), "Side-Panel: Expand icon");
+    await verificationUtils.elementIsVisible(components.side_panel_icon_expand, "Side-Panel: Expand icon");
 
     // Verify the logo on the header
-    await verificationUtils.elementHasText(components.get_header_logo_swag_labs(), 'Swag Labs');
+    await verificationUtils.elementHasText(components.header_logo_swag_labs, 'Swag Labs');
     
     // Verify the cart icon on the header
-    await verificationUtils.elementIsVisible(components.get_header_icon_cart(), "Header: Cart icon");
+    await verificationUtils.elementIsVisible(components.header_icon_cart, "Header: Cart icon");
 
     // Verify the CSS Property of the logo
     verificationUtils.elementHasCSSPropertyAndHasValue(components.header_logo_swag_labs, "Header: Swag Labs", "font-size","24px")
@@ -61,7 +61,7 @@ test.describe('[COMPONENTS]', () => {
 
     // Verify that User is on Cart Page
     const cartPage = new CartPage(page);
-    await verificationUtils.elementHasText(cartPage.get_heading_your_cart(), 'Your Cart');
+    await verificationUtils.elementHasText(cartPage.heading_your_cart, 'Your Cart');
   
     // Verify the Page URL
     await verificationUtils.pageContainsUrl(page, 'cart');
@@ -81,12 +81,12 @@ test.describe('[COMPONENTS]', () => {
     const components = new Components(page);
 
     // Verify the social links icons are visible
-    await verificationUtils.elementIsVisible(components.get_footer_link_twitter(), "Footer: Twitter link");
-    await verificationUtils.elementIsVisible(components.get_footer_link_facebook(), "Footer: Facebook link");
-    await verificationUtils.elementIsVisible(components.get_footer_link_linkedin(), "Footer: LinkedIn link");
+    await verificationUtils.elementIsVisible(components.footer_link_twitter, "Footer: Twitter link");
+    await verificationUtils.elementIsVisible(components.footer_link_facebook, "Footer: Facebook link");
+    await verificationUtils.elementIsVisible(components.footer_link_linkedin, "Footer: LinkedIn link");
 
     // Verify the copyright message
-    await verificationUtils.elementContainsText(components.get_footer_msg_copyright(), 'Sauce Labs. All Rights Reserved. Terms of Service | Privacy Policy');
+    await verificationUtils.elementContainsText(components.footer_msg_copyright, 'Sauce Labs. All Rights Reserved. Terms of Service | Privacy Policy');
 
   });
 
@@ -98,11 +98,11 @@ test.describe('[COMPONENTS]', () => {
     const components = new Components(page);
 
     // Verify the social links have correct href attributes
-    await verificationUtils.elementHasAttributeAndHasValue(components.get_footer_link_twitter(), "href", "https://twitter.com/saucelabs");
+    await verificationUtils.elementHasAttributeAndHasValue(components.footer_link_twitter, "href", "https://twitter.com/saucelabs");
 
-    await verificationUtils.elementHasAttributeAndHasValue(components.get_footer_link_facebook(),"href", "https://www.facebook.com/saucelabs");
+    await verificationUtils.elementHasAttributeAndHasValue(components.footer_link_facebook,"href", "https://www.facebook.com/saucelabs");
 
-    await verificationUtils.elementHasAttributeAndHasValue(components.get_footer_link_linkedin(), "href", "https://www.linkedin.com/company/sauce-labs/");
+    await verificationUtils.elementHasAttributeAndHasValue(components.footer_link_linkedin, "href", "https://www.linkedin.com/company/sauce-labs/");
 
   });
 
@@ -144,7 +144,7 @@ test.describe('[COMPONENTS]', () => {
 
     // Close Side-Panel
     await components.click_side_panel_icon_cross();
-    await verificationUtils.elementIsVisible(components.get_side_panel_icon_expand(), "Side-Panel: Expand icon");
+    await verificationUtils.elementIsVisible(components.side_panel_icon_expand, "Side-Panel: Expand icon");
 
   });
 

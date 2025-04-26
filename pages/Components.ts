@@ -16,12 +16,12 @@ class Components {
     readonly header_logo_swag_labs: Locator;
     readonly header_icon_cart: Locator;
     
-    private footer_msg_copyright: Locator;
-    private footer_link_linkedin: Locator;
-    private footer_link_twitter: Locator;
-    private footer_link_facebook: Locator;
+    readonly footer_msg_copyright: Locator;
+    readonly footer_link_linkedin: Locator;
+    readonly footer_link_twitter: Locator;
+    readonly footer_link_facebook: Locator;
 
-    private side_panel_icon_expand: Locator;
+    readonly side_panel_icon_expand: Locator;
     readonly side_panel_icon_cross: Locator;
     readonly side_panel_link_allItems: Locator;
     readonly side_panel_link_about: Locator;
@@ -61,21 +61,6 @@ class Components {
     // Operations/Methods
 
     // Header
-    /**
-     * Returns the locator for the Swag Labs logo in the header.
-     * @returns Locator for the header logo element.
-     */
-    get_header_logo_swag_labs(): Locator {
-        return this.header_logo_swag_labs;
-    }
-
-    /**
-     * Returns the locator for the cart icon in the header.
-     * @returns {Locator} - Locator for the cart icon element.
-     */
-    get_header_icon_cart(): Locator {
-        return this.header_icon_cart;
-    }
 
     /**
      * Clicks the cart icon in the header.
@@ -87,48 +72,8 @@ class Components {
     }
 
     // Footer
-
-    /**
-     * Returns the locator for the footer copyright message.
-     * @returns Locator for the footer message element.
-     */
-    get_footer_msg_copyright(): Locator {
-        return this.footer_msg_copyright;
-    }
-
-    /**
-     * Returns the locator for the LinkedIn link in the footer.
-     * @returns Locator for the LinkedIn link element.
-     */
-    get_footer_link_linkedin(): Locator {
-        return this.footer_link_linkedin;
-    }
-
-    /**
-     * Returns the locator for the Twitter link in the footer.
-     * @returns Locator for the Twitter link element.
-     */
-    get_footer_link_twitter(): Locator {
-        return this.footer_link_twitter;
-    }
-
-    /**
-     * Returns the locator for the Facebook link in the footer.
-     * @returns Locator for the Facebook link element.
-     */
-    get_footer_link_facebook(): Locator {
-        return this.footer_link_facebook;
-    }
     
     // Side-Panel 
-
-    /**
-     * Returns the locator for the side-panel expand icon.
-     * @returns {Locator} - Locator for the side-panel expand icon element.
-     */
-    get_side_panel_icon_expand(): Locator{
-        return this.side_panel_icon_expand;
-    }
 
     /**
      * Clicks on the expand icon in the side-panel.

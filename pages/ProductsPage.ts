@@ -6,7 +6,7 @@ import { Page, Locator } from '@playwright/test';
 class ProductsPage {
     
     private page: Page;
-    private heading_products: Locator;
+    readonly heading_products: Locator;
 
     // Elements
 
@@ -21,14 +21,7 @@ class ProductsPage {
 
     // Operations/Methods
 
-    /**
-     * Returns the locator for the Products page heading.
-     * @returns Locator for the heading element on the Products page.
-     */
-    get_heading_products(): Locator {
-        return this.heading_products;
-    }
-}
+ }
 
 /**
  * Exports the ProductsPage class as the default export of this module.

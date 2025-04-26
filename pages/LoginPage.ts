@@ -11,10 +11,10 @@ const basePage = new BasePage();
 class LoginPage {
     
     private page: Page;
-    private textbox_username: Locator;
-    private textbox_password: Locator;
-    private button_login: Locator;
-    private message_error_not_match: Locator;
+    readonly textbox_username: Locator;
+    readonly textbox_password: Locator;
+    readonly button_login: Locator;
+    readonly message_error_not_match: Locator;
 
     // Elements
 
@@ -71,18 +71,6 @@ class LoginPage {
         await this.loginToApplication(valid_username, valid_password);
     }
 
-    /**
-     * Returns the locator for the error message displayed when login credentials do not match.
-     * This message appears when invalid credentials are entered.
-     * 
-     * @returns {Locator} - Locator for the login error message element.
-     * 
-     * @example
-     * const errorMessageLocator = loginPage.get_message_error_not_match();
-     */
-    get_message_error_not_match(): Locator {
-        return this.message_error_not_match;
-    }
 }
 
 /**
