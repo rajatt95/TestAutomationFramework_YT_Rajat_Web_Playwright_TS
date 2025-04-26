@@ -20,7 +20,8 @@
     "tests:EDGE:HEADLESS": "npx playwright test --project='Microsoft Edge'",
     "tests:CHROME:HEADLESS": "npx playwright test --project='Google Chrome'",
 
-    "tests:ui-mode": "npx playwright test --ui"
+    "tests:ui-mode": "npx playwright test --ui",
+    "tests:show:reports-html": "npx playwright show-report"
 
   },
   "keywords": [],
