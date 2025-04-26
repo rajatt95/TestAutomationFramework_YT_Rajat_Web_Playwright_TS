@@ -1,0 +1,14 @@
+{
+  "name": "base_testautomationframework_yt_rajat_web_playwright_ts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.52.0",
+    "@types/node": "^22.15.2"
+  }
+}
