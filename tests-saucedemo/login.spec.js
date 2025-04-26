@@ -1,7 +1,7 @@
 // @ts-check
 import { test, expect } from '@playwright/test';
 
-test('[LOGIN] Login with valid credentials. Validate that User is able to login using valid credentials.', async ({ page }) => {
+test('[LOGIN] Login with valid credentials. Validate that User is able to login using valid credentials. @regression @sanity', async ({ page }) => {
   
   // Navigate to application
   await page.goto('/');
@@ -30,7 +30,7 @@ test('[LOGIN] Login with valid credentials. Validate that User is able to login 
   
 });
 
-test('[LOGIN] Login with invalid credentials. Validate that User is unable to login using invalid credentials.', async ({ page }) => {
+test('[LOGIN] Login with invalid credentials. Validate that User is unable to login using invalid credentials. @regression', async ({ page }) => {
   
   // Navigate to application
   await page.goto('/');

@@ -21,7 +21,10 @@
     "tests:CHROME:HEADLESS": "npx playwright test --project='Google Chrome'",
 
     "tests:ui-mode": "npx playwright test --ui",
-    "tests:show:reports-html": "npx playwright show-report"
+    "tests:show:reports-html": "npx playwright show-report",
+    "tests:CHROME:Tag:SANITY": "npx playwright test --project='Google Chrome' --grep=@sanity",
+    "tests:CHROME:Tag:REGRESSION": "npx playwright test --project='Google Chrome' --grep=@regression"
+    
 
   },
   "keywords": [],
