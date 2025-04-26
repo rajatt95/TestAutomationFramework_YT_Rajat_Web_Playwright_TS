@@ -4,7 +4,22 @@
   "description": "This project is a Test Automation Framework built using Playwright and Typescript for automated testing of web applications.",
   "main": "index.js",
   "scripts": {
-    "playwright:tests": "npx playwright test --headed"
+    "playwright:tests": "npx playwright test --headed",
+
+    "tests:ALL": "npx playwright test --headed",
+    "tests:WEBKIT": "npx playwright test --project=webkit --headed",
+    "tests:CHROMIUM": "npx playwright test --project=chromium --headed",
+    "tests:FIREFOX": "npx playwright test --project=firefox --headed",
+    "tests:EDGE": "npx playwright test --project='Microsoft Edge' --headed",
+    "tests:CHROME": "npx playwright test --project='Google Chrome' --headed",
+
+    "tests:ALL:HEADLESS": "npx playwright test",
+    "tests:WEBKIT:HEADLESS": "npx playwright test --project=webkit",
+    "tests:CHROMIUM:HEADLESS": "npx playwright test --project=chromium",
+    "tests:FIREFOX:HEADLESS": "npx playwright test --project=firefox",
+    "tests:EDGE:HEADLESS": "npx playwright test --project='Microsoft Edge'",
+    "tests:CHROME:HEADLESS": "npx playwright test --project='Google Chrome'"
+    
   },
   "keywords": [],
   "author": "",
