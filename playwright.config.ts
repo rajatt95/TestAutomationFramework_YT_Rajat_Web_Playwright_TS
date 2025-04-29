@@ -14,6 +14,9 @@ import { defineConfig, devices } from '@playwright/test';
 export default defineConfig({
   // testDir: './tests',
   testDir: './tests-saucedemo',
+
+  timeout: 60000, // Set the timeout to 60 seconds (in milliseconds)
+  
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */

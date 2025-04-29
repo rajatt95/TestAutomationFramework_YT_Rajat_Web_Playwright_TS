@@ -4,6 +4,8 @@
   "description": "This project is a Test Automation Framework built using Playwright and Typescript for automated testing of web applications.",
   "main": "index.js",
   "scripts": {
+    "playwright:codegen": "npx playwright codegen",
+  
     "playwright:tests": "npx playwright test --headed",
 
     "tests:ALL": "npx playwright test --headed",
@@ -22,7 +24,7 @@
 
     "tests:ui-mode": "npx playwright test --ui",
     "tests:debug": "npx playwright test --debug",
-    
+
     "tests:show:reports-html": "npx playwright show-report",
     "tests:CHROME:Tag:SANITY": "npx playwright test --project='Google Chrome' --grep=@sanity",
     "tests:CHROME:Tag:REGRESSION": "npx playwright test --project='Google Chrome' --grep=@regression"
