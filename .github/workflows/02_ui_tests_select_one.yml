@@ -1,0 +1,64 @@
+# This GitHub Actions workflow is designed to execute Playwright tests with the option 
+# to select the browser dynamically at run-time. 
+# It supports manual triggers and handles inputs for browser selection.
+
+name: 02_Select Browser at run-time
+
+on:
+  # Manual Trigger with browser selection input
+  workflow_dispatch:
+    inputs:
+      browser:
+        description: 'Select browser (CHROME | EDGE | WEBKIT | CHROMIUM | FIREFOX)'
+        options:
+          - 'CHROME'
+          - 'EDGE'
+          - 'WEBKIT'
+          - CHROMIUM
+          - 'FIREFOX'
+        required: true
+        default: 'CHROME'
+        type: choice
+
+jobs:
+
+  # Job for running Playwright tests
+  ui_tests_browser_selected:
+
+    # Set a maximum timeout for the job
+    timeout-minutes: 60
+
+    # Define the machine on which tests will execute
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checking out the code from Github repository to the machine (ubuntu-latest)
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Installing Node JS
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+      
+      # Step 3: Install project dependencies
+      - name: Install dependencies
+        run: npm ci
+
+      # Step 4: Install Playwright browsers and dependencies
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+
+      # Step 5: Run Playwright tests on selected browser
+      - name: Run Playwright UI tests on selected browser
+        run: npm run tests:${{ github.event.inputs.browser }}:HEADLESS
+      
+      # Step 6: Upload Playwright test report as an artifact
+      - name: Upload Reports
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: UI Tests Report
+          path: playwright-report/
+          retention-days: 30

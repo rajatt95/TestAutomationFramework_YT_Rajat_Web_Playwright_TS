@@ -1,0 +1,58 @@
+# This GitHub Actions workflow is designed to execute Playwright tests using Chrome on various events 
+# such as manual trigger, push to the main/master branch, or pull requests to the main/master branch.
+
+name: 01_Pre-defined browser Chrome
+
+on:
+  # Manual Trigger with pre-defined browser Chrome
+  workflow_dispatch:
+
+  # Trigger on push to the main or master branch
+  push:
+      branches: [ main, master ]
+
+  # Trigger on pull request to the main or master branch
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  # Job for running Playwright tests
+  ui_tests_chrome:
+
+    # Set a maximum timeout for the job
+    timeout-minutes: 60
+
+    # Define the machine on which tests will execute
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checking out the code from the GitHub repository to the machine (ubuntu-latest)
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Installing Node.js
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+      
+      # Step 3: Install project dependencies
+      - name: Install dependencies
+        run: npm ci
+
+      # Step 4: Install Playwright browsers and dependencies
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+
+      # Step 5: Run Playwright UI tests on Chrome browser
+      - name: Run Playwright UI tests on Chrome browser
+        run: npm run tests:CHROME:HEADLESS
+
+      # Step 6: Upload Playwright test report as an artifact
+      - name: Upload Reports
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: UI Tests Report
+          path: playwright-report/
+          retention-days: 30
