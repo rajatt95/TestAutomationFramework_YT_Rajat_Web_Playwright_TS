@@ -52,17 +52,17 @@ test.describe('[LOGIN]', () => {
 
     // Verify the heading on the Products page
     const productsPage = new ProductsPage(page)
-    await verificationUtils.elementHasText(productsPage.heading_products, 'Products')
+    verificationUtils.elementHasText(productsPage.heading_products, 'Products')
     
     // Verify the logo on the header
     const components = new Components(page)
-    await verificationUtils.elementHasText(components.header_logo_swag_labs, 'Swag Labs')
+    verificationUtils.elementHasText(components.header_logo_swag_labs, 'Swag Labs')
 
     // Verify the copyright message in the footer
-    await verificationUtils.elementContainsText(components.footer_msg_copyright, ' Sauce Labs. All Rights Reserved. Terms of Service | Privacy Policy')
+    verificationUtils.elementContainsText(components.footer_msg_copyright, ' Sauce Labs. All Rights Reserved. Terms of Service | Privacy Policy')
 
     // Verify that LinkedIn link in the footer is present
-    await verificationUtils.elementIsVisible(components.footer_link_linkedin, "Footer: LinkedIn link")
+    verificationUtils.elementIsVisible(components.footer_link_linkedin, "Footer: LinkedIn link")
 
     // Verify the href attribute and value for the LinkedIn link in the footer
     verificationUtils.elementHasAttributeAndHasValue(components.footer_link_linkedin, "Footer: LinkedIn link", 'href', 'https://www.linkedin.com/company/sauce-labs/')    
@@ -86,7 +86,7 @@ test.describe('[LOGIN]', () => {
     await loginPage.loginToApplication(invalid_username, invalid_password)
 
     // Verify the error message for Username and Password mismatch
-    await verificationUtils.elementContainsText(loginPage.message_error_not_match, 'Username and password do not match')
+    verificationUtils.elementContainsText(loginPage.message_error_not_match, 'Username and password do not match')
     
   });
 

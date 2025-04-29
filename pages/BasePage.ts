@@ -19,10 +19,10 @@ class BasePage {
      * Fills a textbox with the provided value.
      * @param element - The Locator of the textbox element.
      * @param value - The value/text to be entered into the textbox.
-     * @param textbox_name - A descriptive name of the textbox (used for logging).
+     * @param textboxName - A descriptive name of the textbox (used for logging).
      */
-    async fillTextBox(element: Locator, value: string, textbox_name: string): Promise<void> {
-        console.log(`Filling '${value}' in '${textbox_name}' textbox.`);
+    async fillTextBox(element: Locator, value: string, textboxName: string): Promise<void> {
+        console.log(`Filling '${value}' in '${textboxName}' textbox.`);
         await element.fill(value);
     }
 }

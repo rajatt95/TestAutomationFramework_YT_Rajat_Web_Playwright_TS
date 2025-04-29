@@ -23,7 +23,6 @@ test.describe('[COMPONENTS]', () => {
     await page.goto('/');  
     const loginPage = new LoginPage(page);
     await loginPage.loginToApplicationWithValidCredentials();
-
   });
 
   /**
@@ -34,13 +33,13 @@ test.describe('[COMPONENTS]', () => {
    
     // Verify the side-panel expand icon on the header
     const components = new Components(page);    
-    await verificationUtils.elementIsVisible(components.side_panel_icon_expand, "Side-Panel: Expand icon");
+    verificationUtils.elementIsVisible(components.side_panel_icon_expand, "Side-Panel: Expand icon");
 
     // Verify the logo on the header
-    await verificationUtils.elementHasText(components.header_logo_swag_labs, 'Swag Labs');
+    verificationUtils.elementHasText(components.header_logo_swag_labs, 'Swag Labs');
     
     // Verify the cart icon on the header
-    await verificationUtils.elementIsVisible(components.header_icon_cart, "Header: Cart icon");
+    verificationUtils.elementIsVisible(components.header_icon_cart, "Header: Cart icon");
 
     // Verify the CSS Property of the logo
     verificationUtils.elementHasCSSPropertyAndHasValue(components.header_logo_swag_labs, "Header: Swag Labs", "font-size","24px")
@@ -61,16 +60,16 @@ test.describe('[COMPONENTS]', () => {
 
     // Verify that User is on Cart Page
     const cartPage = new CartPage(page);
-    await verificationUtils.elementHasText(cartPage.heading_your_cart, 'Your Cart');
+    verificationUtils.elementHasText(cartPage.heading_your_cart, 'Your Cart');
   
     // Verify the Page URL
-    await verificationUtils.pageContainsUrl(page, 'cart');
-    // await verificationUtils.pageHasUrl(page, 'https://www.saucedemo.com/cart.html');
-    await verificationUtils.pageHasUrl(page, 'cart.html'); // baseUrl value will be fetched from playwright.config.ts file
+    verificationUtils.pageContainsUrl(page, 'cart');
+    // verificationUtils.pageHasUrl(page, 'https://www.saucedemo.com/cart.html');
+    verificationUtils.pageHasUrl(page, 'cart.html'); // baseUrl value will be fetched from playwright.config.ts file
 
     // Verify the Page Title
-    // await verificationUtils.pageContainsTitle(page, 'Labs');
-    await verificationUtils.pageHasTitle(page, 'Swag Labs');
+    // verificationUtils.pageContainsTitle(page, 'Labs');
+    verificationUtils.pageHasTitle(page, 'Swag Labs');
   });
 
   /**
@@ -80,13 +79,13 @@ test.describe('[COMPONENTS]', () => {
   test('[Footer] Static Messages. Validate that User is able to see messages in Footer component. @regression @sanity', async ({ page }) => {
     const components = new Components(page);
 
-    // Verify the social links icons are visible
-    await verificationUtils.elementIsVisible(components.footer_link_twitter, "Footer: Twitter link");
-    await verificationUtils.elementIsVisible(components.footer_link_facebook, "Footer: Facebook link");
-    await verificationUtils.elementIsVisible(components.footer_link_linkedin, "Footer: LinkedIn link");
+    // Verify the social links icons are visible  
+    verificationUtils.elementIsVisible(components.footer_link_twitter, "Footer: Twitter link");
+    verificationUtils.elementIsVisible(components.footer_link_facebook, "Footer: Facebook link");
+    verificationUtils.elementIsVisible(components.footer_link_linkedin, "Footer: LinkedIn link");
 
     // Verify the copyright message
-    await verificationUtils.elementContainsText(components.footer_msg_copyright, 'Sauce Labs. All Rights Reserved. Terms of Service | Privacy Policy');
+    verificationUtils.elementContainsText(components.footer_msg_copyright, 'Sauce Labs. All Rights Reserved. Terms of Service | Privacy Policy');
 
   });
 
@@ -98,11 +97,11 @@ test.describe('[COMPONENTS]', () => {
     const components = new Components(page);
 
     // Verify the social links have correct href attributes
-    await verificationUtils.elementHasAttributeAndHasValue(components.footer_link_twitter, "Footer: Twitter link", "href", "https://twitter.com/saucelabs");
+    verificationUtils.elementHasAttributeAndHasValue(components.footer_link_twitter, "Footer: Twitter link", "href", "https://twitter.com/saucelabs");
 
-    await verificationUtils.elementHasAttributeAndHasValue(components.footer_link_facebook, "Footer: Facebook link", "href", "https://www.facebook.com/saucelabs");
+    verificationUtils.elementHasAttributeAndHasValue(components.footer_link_facebook, "Footer: Facebook link", "href", "https://www.facebook.com/saucelabs");
 
-    await verificationUtils.elementHasAttributeAndHasValue(components.footer_link_linkedin, "Footer: LinkedIn link", "href", "https://www.linkedin.com/company/sauce-labs/");
+    verificationUtils.elementHasAttributeAndHasValue(components.footer_link_linkedin, "Footer: LinkedIn link", "href", "https://www.linkedin.com/company/sauce-labs/");
 
   });
 
@@ -117,14 +116,14 @@ test.describe('[COMPONENTS]', () => {
     await components.click_side_panel_icon_expand();
 
     // Verify Links in Side-Panel
-    await verificationUtils.elementHasText(components.side_panel_link_allItems, "All Items");
-    await verificationUtils.elementHasText(components.side_panel_link_about, "About");
-    await verificationUtils.elementHasText(components.side_panel_link_logout, "Logout");
-    await verificationUtils.elementHasText(components.side_panel_link_resetAppState, "Reset App State");
+    verificationUtils.elementHasText(components.side_panel_link_allItems, "All Items");
+    verificationUtils.elementHasText(components.side_panel_link_about, "About");
+    verificationUtils.elementHasText(components.side_panel_link_logout, "Logout");
+    verificationUtils.elementHasText(components.side_panel_link_resetAppState, "Reset App State");
 
-    await verificationUtils.elementsCount(components.side_panel_links, "Side-Panel links", 4)
+    verificationUtils.elementsCount(components.side_panel_links, "Side-Panel links", 4)
 
-    await verificationUtils.elementIsVisible(components.side_panel_icon_cross, "Side-Panel: Cross icon");
+    verificationUtils.elementIsVisible(components.side_panel_icon_cross, "Side-Panel: Cross icon");
 
   });
 
@@ -140,11 +139,11 @@ test.describe('[COMPONENTS]', () => {
 
     await waitUtils.waitForGivenTime(2); // Wait 2 seconds
 
-    await verificationUtils.elementIsVisible(components.side_panel_icon_cross, "Side-Panel: Cross icon");
+    verificationUtils.elementIsVisible(components.side_panel_icon_cross, "Side-Panel: Cross icon");
 
     // Close Side-Panel
     await components.click_side_panel_icon_cross();
-    await verificationUtils.elementIsVisible(components.side_panel_icon_expand, "Side-Panel: Expand icon");
+    verificationUtils.elementIsVisible(components.side_panel_icon_expand, "Side-Panel: Expand icon");
 
   });
 
@@ -162,8 +161,8 @@ test.describe('[COMPONENTS]', () => {
     await components.click_side_panel_link_about();
 
     // Verify Page URL and Title
-    await verificationUtils.pageHasTitle(page, 'Sauce Labs: Cross Browser Testing, Selenium Testing & Mobile Testing');
-    await verificationUtils.pageHasUrl(page, 'https://saucelabs.com/');
+    verificationUtils.pageHasTitle(page, 'Sauce Labs: Cross Browser Testing, Selenium Testing & Mobile Testing');
+    verificationUtils.pageHasUrl(page, 'https://saucelabs.com/');
 
   });
 

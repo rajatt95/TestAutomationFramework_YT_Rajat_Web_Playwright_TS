@@ -1,3 +1,6 @@
+/** 
+ * WaitUtils class provides methods for introducing waits during test execution.
+ */
 class WaitUtils {
 
     /**
