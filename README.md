@@ -40,7 +40,7 @@
 - [Contacts](#contacts)
 
 ## 📖 Introduction
-This repository contains a **Test Automation Framework** built with **Playwright** and **TypeScript** for testing web applications.
+This repository contains a **Test Automation Framework** built with **Playwright** and **TypeScript** for testing **web applications**.
 
 
 <!-- ## 🎥 Video Tutorial
@@ -76,12 +76,23 @@ Click on the image above to watch the tutorials. -->
 
 ## 🚀 Running Tests
 
-- Playwright UI mode:
+- **Playwright UI mode:**
 
   ```bash
   npm run tests:ui-mode
   ```
-- Execution in different browsers:
+- **Playwright Debug mode:**
+
+  ```bash
+  npm run tests:debug
+  ```
+- **Playwright Codegen:**
+
+  ```bash
+  npm run playwright:codegen
+  ```
+
+- **Execution in different browsers:**
 
   - [![Chrome](https://img.shields.io/badge/Chrome-4285F4?style=for-the-badge&logo=google-chrome&logoColor=white)](https://www.google.com/chrome/)
 [![Edge](https://img.shields.io/badge/Edge-0078D7?style=for-the-badge&logo=microsoft-edge&logoColor=white)](https://www.microsoft.com/edge/)[![Firefox](https://img.shields.io/badge/Firefox-FF7139?style=for-the-badge&logo=firefox&logoColor=white)](https://www.mozilla.org/firefox/)
