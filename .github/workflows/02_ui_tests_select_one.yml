@@ -56,7 +56,7 @@ jobs:
       
       # Step 6: Upload Playwright test report as an artifact
       - name: Upload Reports
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: UI Tests Report

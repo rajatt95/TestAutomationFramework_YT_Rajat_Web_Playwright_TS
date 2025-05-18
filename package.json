@@ -23,7 +23,7 @@
     "tests:CHROME:HEADLESS": "npx playwright test --project='Google Chrome'",
 
     "tests:ui-mode": "npx playwright test --ui",
-    "tests:debug": "npx playwright test --debug",
+    "tests:debug-mode": "npx playwright test --debug",
 
     "tests:show:reports-html": "npx playwright show-report",
     "tests:CHROME:Tag:SANITY": "npx playwright test --project='Google Chrome' --grep=@sanity",
