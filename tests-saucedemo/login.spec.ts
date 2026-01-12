@@ -6,6 +6,7 @@ import LoginPage from '../pages/LoginPage';
 import ProductsPage from '../pages/ProductsPage';
 import Components from '../pages/Components';
 import verificationUtils from '../utils/VerificationUtils';
+import tagUtils from '../utils/TagUtils';
 
 // Importing test data
 import loginCredentials from '../test-data/login_credentials.json';
@@ -15,7 +16,6 @@ const {
   credentials_1: { valid_username, valid_password },
   credentials_2: { invalid_username, invalid_password }
 } = loginCredentials.data;
-
 
 /**
  * Test suite for Sauce Demo login functionality.
@@ -37,9 +37,9 @@ test.describe('[LOGIN]', () => {
    * - Verify header logo
    * - Verify footer elements and LinkedIn link
    * 
-   * Tags: @regression @sanity
+   * Tags: @regression @sanity @bvt
    */
-  test('Login with valid credentials. Validate that User is able to login using valid credentials. @regression @sanity', async ({ page }) => {
+  test('Login with valid credentials. Validate that User is able to login using valid credentials.', {tag: [tagUtils.REGRESSION, tagUtils.SANITY, tagUtils.BVT ]}, async ({ page }) => {
     
     // Navigate to application
     await page.goto('/');
@@ -74,9 +74,9 @@ test.describe('[LOGIN]', () => {
    * Validate that a user is unable to log in using invalid credentials.
    * - Verify the error message for incorrect Username and Password
    * 
-   * Tags: @regression
+   * Tags: @regression @sanity
    */
-  test('Login with invalid credentials. Validate that User is unable to login using invalid credentials. @regression', async ({ page }) => {
+  test('Login with invalid credentials. Validate that User is unable to login using invalid credentials.', {tag: [tagUtils.REGRESSION, tagUtils.SANITY ]}, async ({ page }) => {
     
     // Navigate to application
     await page.goto('/');

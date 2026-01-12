@@ -24,18 +24,22 @@
 
     "tests:ui-mode": "npx playwright test --ui",
     "tests:debug-mode": "npx playwright test --debug",
-
     "tests:show:reports-html": "npx playwright show-report",
+
     "tests:CHROME:Tag:SANITY": "npx playwright test --project='Google Chrome' --grep=@sanity",
-    "tests:CHROME:Tag:REGRESSION": "npx playwright test --project='Google Chrome' --grep=@regression"
+    "tests:CHROME:Tag:REGRESSION": "npx playwright test --project='Google Chrome' --grep=@regression",
     
+    "tests:CHROME:Tag:BVT": "npx playwright test --project='Google Chrome' --grep=@bvt",
+    "tests:CHROME:Tag:EXCEPT_BVT": "npx playwright test --project='Google Chrome' --grep-invert=@bvt",
+    "tests:CHROME:Tag:SANITY_OR_BVT": "npx playwright test --project='Google Chrome' --grep='@(sanity|bvt)'",
+    "tests:CHROME:Tag:SANITY_AND_BVT": "npx playwright test --project='Google Chrome' --grep='@sanity.*@bvt|@bvt.*@sanity'"
 
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "^1.52.0",
-    "@types/node": "^22.15.2"
+    "@playwright/test": "^1.57.0",
+    "@types/node": "^25.0.6"
   }
 }
